@@ -57,3 +57,32 @@ The following command allow to download the FASHION-MNIST data set or CelebA and
 │   │   └── val
 
 ```
+
+### Run the app
+
+* First of all, one need to train a DCGAN model on the choosen dataset.
+* Then, use the pretrained DCGAN model to compute offline the closest latent vectors encodings of the images
+in the training set to be used during the collaborative sampling scheme. 
+* Finally, use the pretrained DCGAN model along with the saved latent vectors to experiment and compare the collaborative image inpainting scheme against the previous semantic image inpainting method.
+
+
+#### Training
+
+As an example, use the following command to train the DCGAN model. Other arguments are available in the ```main.py``` file to use different parameters.
+
+``` python main.py --is_train=true --iters=25000 --dataset=fashion_mnist```
+
+### Offline computing of closest latent vectors encoding
+
+``` python inpaint_main.py --offline=true --dataset=fashion_mnist```
+
+### Experiment between the collaborative scheme and oginal inpainting method. 
+
+Two modes are available between [inpaint | standard] to choose between collaborative image inpainting and standard collaborative sampling scheme.
+
+``` python inpaint_main.py --mode=inpaint --dataset=fashion_mnist```
+
+
+### Attribution / Thanks
+
+* This project borrowed some code from [ChengBinJin](https://github.com/ChengBinJin/semantic-image-inpainting), mostly regarding the inpainting process and from [vita-epfl](https://github.com/vita-epfl/collaborative-gan-sampling) regarding the collaborative sampling scheme.
