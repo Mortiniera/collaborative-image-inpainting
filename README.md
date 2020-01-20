@@ -9,4 +9,4 @@
 
 ## Inpainting
 
-!(../master/assets/inpaint0.png)
+![image 1](../master/assets/inpaint0.png)
