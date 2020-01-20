@@ -27,4 +27,10 @@
   </div>
 </div>
 
+.column {
+  float: left;
+  width: 20%;
+  padding: 5px;
+}
+
 
