@@ -23,9 +23,9 @@ Sampling results for image inpainting by targeting the corrupted region. (Top) I
 
 ### Download dataset
 
-The following command allow to download the FASHION-MNIST data set or CelebA and create the corresponding folders as in the directory hierarchy below.
+The following command allow to download the FASHION-MNIST data set and create the corresponding folders as in the directory hierarchy below.
 
-``` python download.py [fashion_mnist | celebA] ```
+``` python download.py fashion_mnist ```
 
 ### Directory hierarchy
 
