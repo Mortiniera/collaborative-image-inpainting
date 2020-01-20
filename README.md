@@ -23,6 +23,37 @@ Sampling results for image inpainting by targeting the corrupted region. (Top) I
 
 ### Download dataset
 
-The following command allow to download the FASHION-MNIST data set or CelebA and create the corresponding folders as in the directory hierarchy.
+The following command allow to download the FASHION-MNIST data set or CelebA and create the corresponding folders as in the directory hierarchy below.
 
 ``` python download.py [fashion_mnist | celebA] ```
+
+### Directory hierarchy
+
+```
+.
+│   collaborative-image-inpainting
+│   ├── src
+│   │   ├── collaborator.py
+│   │   ├── dataset.py
+│   │   ├── dcgan.py
+│   │   ├── download.py
+│   │   ├── inpaint_main.py
+│   │   ├── inpaint_model.py
+│   │   ├── inpaint_solver.py
+│   │   ├── main.py
+│   │   ├── mask_generator.py
+│   │   ├── ops.py
+│   │   ├── policy.py
+│   │   ├── solver.py
+│   │   ├── tensorflow_utils.py
+│   │   └── utils.py
+│   │   └── utils_2.py
+│   Data
+│   ├── celebA
+│   │   ├── train
+│   │   └── val
+│   ├── fashion_mnist
+│   │   ├── train
+│   │   └── val
+
+```
