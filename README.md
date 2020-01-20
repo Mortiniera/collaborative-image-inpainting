@@ -29,6 +29,8 @@ The following command allow to download the FASHION-MNIST data set or CelebA and
 
 ### Directory hierarchy
 
+If using an already pretrained DCGAN model, its root folder should be placed at the same hierarchy level as the collaborative-image-inpainting and Data folders, e.g below, with a pretrained model from fashion_mnist.
+
 ```
 .
 │   collaborative-image-inpainting
@@ -55,6 +57,17 @@ The following command allow to download the FASHION-MNIST data set or CelebA and
 │   ├── fashion_mnist
 │   │   ├── train
 │   │   └── val
+│   fashion_mnist
+│   ├── images
+│   ├── inpaint
+│   ├── logs
+│   ├── model
+│   ├── sample
+│   ├── vectors
+
+
+
+
 
 ```
 
