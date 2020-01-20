@@ -11,8 +11,8 @@
 
 
 <p float="left">
-  <img src="../master/assets/inpaint0.png width="125"> <img src="../master/assets/inpaint1.png" width="125"> <img src="../master/assets/inpaint2.png" width="125">
-  
-  
+  <img src="../master/assets/inpaint0.png width="125"> 
+  <img src="../master/assets/inpaint1.png" width="125"> 
+  <img src="../master/assets/inpaint2.png" width="125">  
 </p>
 
