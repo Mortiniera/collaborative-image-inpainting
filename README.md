@@ -64,11 +64,6 @@ If using an already pretrained DCGAN model, its root folder should be placed at 
 │   ├── model
 │   ├── sample
 │   ├── vectors
-
-
-
-
-
 ```
 
 ### Run the app
