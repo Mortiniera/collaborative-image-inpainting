@@ -1,11 +1,8 @@
 # Collaborative Sampling for Image Inpainting
 
-## Authors 
+## Author
 
 - Thevie Mortiniera
-- Yuejiang Liu (Supervisor)
-- Alexandre Alahi (Professor)
-
 
 ## Inpainting
 
