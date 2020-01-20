@@ -72,11 +72,11 @@ As an example, use the following command to train the DCGAN model. Other argumen
 
 ``` python main.py --is_train=true --iters=25000 --dataset=fashion_mnist```
 
-### Offline computing of closest latent vectors encoding
+#### Offline computing of closest latent vectors encoding
 
 ``` python inpaint_main.py --offline=true --dataset=fashion_mnist```
 
-### Experiment between the collaborative scheme and oginal inpainting method. 
+#### Experiment between the collaborative scheme and oginal inpainting method. 
 
 Two modes are available between [inpaint | standard] to choose between collaborative image inpainting and standard collaborative sampling scheme.
 
