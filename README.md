@@ -61,7 +61,7 @@ The following command allow to download the FASHION-MNIST data set or CelebA and
 ### Run the app
 
 * First of all, one need to train a DCGAN model on the choosen dataset.
-* Then, use the pretrained DCGAN model to compute offline the closest latent vectors encodings of the images
+* Then, use the pretrained DCGAN model to compute, offline, the closest latent vectors encodings of the images
 in the training set to be used during the collaborative sampling scheme. 
 * Finally, use the pretrained DCGAN model along with the saved latent vectors to experiment and compare the collaborative image inpainting scheme against the previous semantic image inpainting method.
 
