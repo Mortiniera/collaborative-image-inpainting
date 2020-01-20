@@ -85,4 +85,5 @@ Two modes are available between [inpaint | standard] to choose between collabora
 
 ### Attribution / Thanks
 
-* This project borrowed some code from [ChengBinJin](https://github.com/ChengBinJin/semantic-image-inpainting), mostly regarding the inpainting process and from [vita-epfl](https://github.com/vita-epfl/collaborative-gan-sampling) regarding the collaborative sampling scheme.
+* This project borrowed some readme formatting and code from [ChengBinJin](https://github.com/ChengBinJin/semantic-image-inpainting), mostly regarding the inpainting process.
+* Most of the collaborative sampling scheme was borrowed from [vita-epfl](https://github.com/vita-epfl/collaborative-gan-sampling)
