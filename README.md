@@ -76,7 +76,7 @@ As an example, use the following command to train the DCGAN model. Other argumen
 
 ``` python inpaint_main.py --offline=true --dataset=fashion_mnist```
 
-#### Experiment between the collaborative scheme and oginal inpainting method. 
+#### Experiment between the collaborative scheme and original inpainting method. 
 
 Two modes are available between [inpaint | standard] to choose between collaborative image inpainting and standard collaborative sampling scheme.  Other arguments are available in the inpaint_main.py file to use different parameters.
 
