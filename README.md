@@ -8,7 +8,4 @@
 
 
 ## Inpainting
-
-![image 1](../master/assets/inpaint0.png)
-
-<img src="../master/assets/inpaint0.png" alt="Collaborative inpainting" width="250"/>
+<img src="../master/assets/inpaint0.png" alt="Collaborative inpainting"/>
