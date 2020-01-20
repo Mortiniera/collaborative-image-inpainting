@@ -78,7 +78,7 @@ As an example, use the following command to train the DCGAN model. Other argumen
 
 #### Experiment between the collaborative scheme and oginal inpainting method. 
 
-Two modes are available between [inpaint | standard] to choose between collaborative image inpainting and standard collaborative sampling scheme.
+Two modes are available between [inpaint | standard] to choose between collaborative image inpainting and standard collaborative sampling scheme.  Other arguments are available in the inpaint_main.py file to use different parameters.
 
 ``` python inpaint_main.py --mode=inpaint --dataset=fashion_mnist```
 
