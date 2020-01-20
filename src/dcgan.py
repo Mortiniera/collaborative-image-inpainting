@@ -320,9 +320,3 @@ class DCGAN(object):
             print("Epoch {}/{}".format(e + 1, epoch))
 
         return refined_samples_list
-
-    def write(self, filename, ckpt, iteration, psnr_score, frechet_distance, efficiency, calib):
-        f = open(filename, "a+")
-        f.write("%d    %d    %.4f    %.4f    %.4f    %.4f\r\n"
-                % (ckpt, iteration, inception_score, frechet_distance, efficiency, calib))
-        f.close()

@@ -10,9 +10,11 @@ FLAGS = tf.flags.FLAGS
 tf.flags.DEFINE_string('gpu_index', '0', 'gpu index, default: 0')
 tf.flags.DEFINE_integer('batch_size', 64, 'batch size for one feed forwrad, default: 64')
 tf.flags.DEFINE_string('dataset', 'fashion_mnist', 'dataset to choose [celebA|fashion_mnist], default: fashion_mnist')
+tf.flags.DEFINE_string('root_folder', 'content', 'root folder of directory hierarchy, default: content for Google Colab')
+
 
 tf.flags.DEFINE_bool('is_train', False, 'training or inference mode, default: False')
-tf.flags.DEFINE_float('learning_rate', 2e-4, 'initial learning rate, default: 0.0002')
+tf.flags.DEFINE_float('learning_rate_adam', 2e-4, 'initial learning rate, default: 0.0002')
 tf.flags.DEFINE_float('beta1', 0.5, 'momentum term of Adam, default: 0.5')
 tf.flags.DEFINE_integer('z_dim', 100, 'dimension of z vector, default: 100')
 

@@ -23,7 +23,7 @@ class Solver(object):
 
         self.flags = flags
         self.dataset = Dataset(flags, self.flags.dataset)
-        self.model = DCGAN(self.sess, self.flags, self.dataset)
+        self.model = DCGAN(self.sess, self.flags, self.flags.dataset)
 
         self._make_folders()
         self.iter_time = 0
