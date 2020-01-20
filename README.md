@@ -51,9 +51,6 @@ If using an already pretrained DCGAN model, its root folder should be placed at 
 │   │   └── utils.py
 │   │   └── utils_2.py
 │   Data
-│   ├── celebA
-│   │   ├── train
-│   │   └── val
 │   ├── fashion_mnist
 │   │   ├── train
 │   │   └── val
