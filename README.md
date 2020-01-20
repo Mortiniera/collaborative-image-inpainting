@@ -9,3 +9,4 @@
 
 ## Inpainting
 
+(../master/assets/inpaint0.png)
