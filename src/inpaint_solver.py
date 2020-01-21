@@ -12,6 +12,9 @@ import matplotlib.gridspec as gridspec
 
 import pickle
 
+from skimage.measure import compare_psnr
+from skimage.measure import compare_ssim
+
 
 
 class Solver(object):
@@ -179,6 +182,11 @@ class Solver(object):
         else:
             print(' [!] Load Failed...')
 
+        #For metrics computings
+        original_images = []
+        original_method_images = []
+        new_method_images = []
+
         context_images_list = []
         latent_vectors_list = []
         gen_samples_list = []
@@ -243,14 +251,20 @@ class Solver(object):
                         all_imgs = []
                         for img in context_images_list[n]:  # masked images
                             all_imgs.append(img)
+                            if((i == len(results) -1) and (forward_step == len(cs_samples) -1)) :
+                                original_images.append(img)
                         for img in inpaint_gen_samples_list[n]:  # output of the generator surrounded by context
                             all_imgs.append(img)
+                            if((i == len(results) -1) and (forward_step == len(cs_samples) -1)) :
+                                original_method_images.append(img)
                         if (self.flags.heatmap):
                             for img in lum_imgs:  # heatmap between inpaint refined samples and inpaint output of the generator
                                 all_imgs.append(img)
                             heatmap_row = 2
                         for img in inpaint_refined_samples:  # refined samples after discriminator shaping surrounded by context
                             all_imgs.append(img)
+                            if((i == len(results) -1) and (forward_step == len(cs_samples) -1)) :
+                                new_method_images.append(img)
                         for img in context_images_list[n]:  # original images
                             all_imgs.append(img)
 
@@ -285,6 +299,23 @@ class Solver(object):
                 self.plot_inpainted_results(all_imgs, i, directory=self.test_out_dir + "/{}".format(n), heatmap_row=heatmap_row)
 
         print("------------ FINISHED ! ALL PLOTS SAVED ---------------------------")
+        
+        if(self.flags.mode == "inpaint") :
+            f = open(self.test_out_dir + "/metrics.txt","a+")
+            
+            for k in range(len(original_images)) :
+                s = "Images {} : PSNR score between original image and semantic image inpainting : {}".format(k, compare_psnr(original_images[k], original_method_images[k], data_range=2))
+                f.write("%s \r\n" % (s))
+                s = "Images {} : PSNR score between original image and  collaborative image inpainting : {}".format(k, compare_psnr(original_images[k], new_method_images[k], data_range=2))
+                f.write("%s \r\n" % (s))
+                s = "--------"
+                f.write("%s \r\n" % (s))
+
+                if(k < len(original_images) - 1) :
+                    print("---------- NEXT IMAGE ----------")
+                else :
+                    print("---------- THE END !! ----------")
+            f.close()
 
     def find_latent_vectors(self, index_list=range(10), save_images = True):
 

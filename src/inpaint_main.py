@@ -61,6 +61,8 @@ def main(_):
         solver.find_latent_vectors()
     else :
         solver.collaborative_sampling_inpainting()
+            
+
 
 
 if __name__ == '__main__':
