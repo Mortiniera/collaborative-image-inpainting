@@ -1,0 +1,60 @@
+Images 0 : PSNR score between original image and semantic image inpainting : 13.31232732209251 
+Images 0 : PSNR score between original image and  collaborative image inpainting : 14.653635768456933 
+-------- 
+Images 1 : PSNR score between original image and semantic image inpainting : 21.07331335210266 
+Images 1 : PSNR score between original image and  collaborative image inpainting : 23.838150520391803 
+-------- 
+Images 2 : PSNR score between original image and semantic image inpainting : 25.539455686980478 
+Images 2 : PSNR score between original image and  collaborative image inpainting : 28.63092779291126 
+-------- 
+Images 3 : PSNR score between original image and semantic image inpainting : 29.934239666811102 
+Images 3 : PSNR score between original image and  collaborative image inpainting : 23.432492949443745 
+-------- 
+Images 4 : PSNR score between original image and semantic image inpainting : 28.387289098142364 
+Images 4 : PSNR score between original image and  collaborative image inpainting : 24.532930003228216 
+-------- 
+Images 5 : PSNR score between original image and semantic image inpainting : 28.186330231909864 
+Images 5 : PSNR score between original image and  collaborative image inpainting : 26.765978529249566 
+-------- 
+Images 6 : PSNR score between original image and semantic image inpainting : 28.936429489452618 
+Images 6 : PSNR score between original image and  collaborative image inpainting : 29.223548441010593 
+-------- 
+Images 7 : PSNR score between original image and semantic image inpainting : 25.250614143714074 
+Images 7 : PSNR score between original image and  collaborative image inpainting : 26.56772997194264 
+-------- 
+Images 8 : PSNR score between original image and semantic image inpainting : 15.22056526986292 
+Images 8 : PSNR score between original image and  collaborative image inpainting : 15.566643506641926 
+-------- 
+Images 9 : PSNR score between original image and semantic image inpainting : 25.197319543437928 
+Images 9 : PSNR score between original image and  collaborative image inpainting : 27.463270578320866 
+-------- 
+Images 10 : PSNR score between original image and semantic image inpainting : 24.882082945377938 
+Images 10 : PSNR score between original image and  collaborative image inpainting : 23.140752825411333 
+-------- 
+Images 11 : PSNR score between original image and semantic image inpainting : 18.382466903185723 
+Images 11 : PSNR score between original image and  collaborative image inpainting : 18.549088357084333 
+-------- 
+Images 12 : PSNR score between original image and semantic image inpainting : 22.98272590137214 
+Images 12 : PSNR score between original image and  collaborative image inpainting : 23.368318025053824 
+-------- 
+Images 13 : PSNR score between original image and semantic image inpainting : 22.91532161854342 
+Images 13 : PSNR score between original image and  collaborative image inpainting : 23.76810305938108 
+-------- 
+Images 14 : PSNR score between original image and semantic image inpainting : 28.13006722903967 
+Images 14 : PSNR score between original image and  collaborative image inpainting : 30.164866053556523 
+-------- 
+Images 15 : PSNR score between original image and semantic image inpainting : 30.34816029839373 
+Images 15 : PSNR score between original image and  collaborative image inpainting : 28.61486213423939 
+-------- 
+Images 16 : PSNR score between original image and semantic image inpainting : 27.06969346092439 
+Images 16 : PSNR score between original image and  collaborative image inpainting : 28.179332717310032 
+-------- 
+Images 17 : PSNR score between original image and semantic image inpainting : 34.8027289177808 
+Images 17 : PSNR score between original image and  collaborative image inpainting : 38.27425462290851 
+-------- 
+Images 18 : PSNR score between original image and semantic image inpainting : 20.070900532027686 
+Images 18 : PSNR score between original image and  collaborative image inpainting : 20.096045744948896 
+-------- 
+Images 19 : PSNR score between original image and semantic image inpainting : 34.63288910696589 
+Images 19 : PSNR score between original image and  collaborative image inpainting : 35.966936820049256 
+-------- 
