@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 
 import pickle
+import cv2
 
 from skimage.measure import compare_psnr
 from skimage.measure import compare_ssim
@@ -173,9 +174,8 @@ class Solver(object):
 
                 #Save figure
                 plt.savefig("{}/image_{}.png".format(directory, indice), bbox_inches='tight')
-
-
-
+    
+    
     def collaborative_sampling_inpainting(self) :
         if self.load_model():
             print(' [*] Load SUCCESS!')
@@ -206,7 +206,7 @@ class Solver(object):
             context_images_list.append(context_images)
             latent_vectors_list.append(latent_vectors)
             gen_samples_list.append(gen_samples)
-
+            
             self.model.preprocess()
             print("--------MODE : {} ------".format(self.flags.mode))
 
@@ -219,7 +219,7 @@ class Solver(object):
         print("-------- START COLLABORATIVE SAMPLING AND DISCRIMINATOR SHAPING ------")
         #Include Collaborative Sampling here
         all_results = self.model.dcgan.discriminator_shaping(latent_vectors_list, context_images_list, self.images_dir,
-                                                         self.vectors_dir)
+                                                        self.vectors_dir)
 
 
         for n in tqdm(range(len(all_results))) :
@@ -295,27 +295,30 @@ class Solver(object):
                         #Plot and save results
                         if(self.flags.observe_evolution) :
                             self.plot_inpainted_results(all_imgs, forward_step, directory=self.evolution_epoch_dir, heatmap_row=heatmap_row)
-
-                self.plot_inpainted_results(all_imgs, i, directory=self.test_out_dir + "/{}".format(n), heatmap_row=heatmap_row)
+                if(not self.flags.eval_mode) :
+                    self.plot_inpainted_results(all_imgs, i, directory=self.test_out_dir + "/{}".format(n), heatmap_row=heatmap_row)
 
         print("------------ FINISHED ! ALL PLOTS SAVED ---------------------------")
         
         if(self.flags.mode == "inpaint") :
-            f = open(self.test_out_dir + "/metrics.txt","a+")
+            #f = open(self.test_out_dir + "/metrics.txt","a+")
             
-            for k in range(len(original_images)) :
-                s = "Images {} : PSNR score between original image and semantic image inpainting : {}".format(k, compare_psnr(original_images[k], original_method_images[k], data_range=2))
-                f.write("%s \r\n" % (s))
-                s = "Images {} : PSNR score between original image and  collaborative image inpainting : {}".format(k, compare_psnr(original_images[k], new_method_images[k], data_range=2))
-                f.write("%s \r\n" % (s))
-                s = "--------"
-                f.write("%s \r\n" % (s))
+            p1 = 0
+            p2 = 0
+            s1 = 0
+            s2 = 0
+            for k in tqdm(range(len(original_images))) :
+                p1 += compare_psnr(original_images[k], original_method_images[k], data_range=2)
+                p2 += compare_psnr(original_images[k], new_method_images[k], data_range=2)
+                s1 += compare_ssim(original_images[k], original_method_images[k], data_range=2, multichannel=True)
+                s2 += compare_ssim(original_images[k], new_method_images[k], data_range=2, multichannel=True)
 
-                if(k < len(original_images) - 1) :
-                    print("---------- NEXT IMAGE ----------")
-                else :
-                    print("---------- THE END !! ----------")
-            f.close()
+            print("Semantic Image Inpainting PSNR : {}".format(p1/len(original_images)))
+            print("Collaborative Image Inpainting PSNR : {}".format(p2/len(original_images)))
+            print("Semantic Image Inpainting SSIM : {}".format(s1/len(original_images)))
+            print("Collaborative Image Inpainting SSIM : {}".format(s2/len(original_images)))
+
+
 
     def find_latent_vectors(self, index_list=range(10), save_images = True):
 

@@ -48,6 +48,8 @@ tf.flags.DEFINE_bool('print_ds_loss', False, 'Print loss during discriminator sh
 tf.flags.DEFINE_bool('overwrite', False, 'overwrite previously saved vector by the new one, default: false')
 tf.flags.DEFINE_bool('load_test_vector', True, 'load an already saved latent vector, default: true')
 tf.flags.DEFINE_bool('offline', False, 'offline computing of closest encoding vectors of training set , default: false')
+tf.flags.DEFINE_bool('eval_mode', True, 'evaluation metrics mode , default: false')
+
 
 
 
