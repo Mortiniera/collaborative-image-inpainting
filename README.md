@@ -14,9 +14,9 @@
   <img src="../master/metrics/images_16_19.png" width="32%">
 </p>
 
-Sampling results for image inpainting by targeting the corrupted region. (Top) Input data with masked region (second row) Semantic Image Inpainting (third row) Heatmap highlighting visual differences between the inpainted results in the 2nd row and the refined results in the fourth row. The closer to the red, the higher thedifferences (fourth row) Collaborative Image Inpainting (bottom) Original images.
+Sampling results for image inpainting by targeting the corrupted region. (Top) Input data with masked region (second row) Semantic Image Inpainting (third row) Heatmap highlighting visual differences between the inpainted results in the 2nd row and the refined results in the fourth row. The closer to the red, the higher the differences (fourth row) Collaborative Image Inpainting (bottom) Original images.
 
-### Quantitative Results : PSNR scores Peak-signal-to-noise-ratio) 
+### Quantitative Results : PSNR scores (Peak-signal-to-noise-ratio) 
 
 From left to right in the images above :
 
