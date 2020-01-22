@@ -28,7 +28,7 @@ From left to right in the images above :
 Average SSIM and PSNR scores on a test set of 2000 images :
 
 | Method | SSIM | PSNR |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | Semantic Image Inpainting | 0.812 | 23.656 |
 | Collaborative Image Inpainting | 0.834 | 24.399 |
 
