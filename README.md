@@ -18,6 +18,11 @@ Sampling results for image inpainting by targeting the corrupted region. (Top) I
 
 ### Quantitative Results (PSNR : Peak-signal-to-noise-ratio) 
 
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+
 From left to right :
 
 ```
