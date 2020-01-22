@@ -16,16 +16,16 @@
 
 Sampling results for image inpainting by targeting the corrupted region. (Top) Input data with masked region (second row) Semantic Image Inpainting (third row) Heatmap highlighting visual differences between the inpainted results in the 2nd row and the refined results in the fourth row. The closer to the red, the higher the differences (fourth row) Collaborative Image Inpainting (bottom) Original images.
 
-### Quantitative Results : PSNR scores (Peak-signal-to-noise-ratio : the higher, the better)
+### Quantitative Results :
 
-From left to right in the images above :
+*PSNR scores, from left to right in the images above :
 
 | Method | Img1 | Img2 | Img3 | Img4 | Img5 | Img6 | Img7 | Img8 | Img9 | Img10 | Img11 | Img12 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Semantic Image Inpainting | 13.31 | 21.07 | 25.54 | 29.93 | 28.39 | 28.19 | 28.94 | 25.25 | 27.07 | 34.80 | 20.07 | 34.63 |
 | Collaborative Image Inpainting | 14.65 | 23.84 | 28.63 | 23.43 | 24.53 | 26.77 | 29.22 | 26.57 | 28.18 | 38.27 | 20.10 | 35.97 |
 
-Average SSIM and average PSNR scores on a test set of 2000 images :
+*Average SSIM and average PSNR scores on a test set of 2000 images :
 
 | Method | SSIM | PSNR |
 | --- | --- | --- |
