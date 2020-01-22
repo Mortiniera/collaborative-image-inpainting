@@ -25,13 +25,10 @@ Sampling results for image inpainting by targeting the corrupted region. (Top) I
 
 From left to right :
 
-```
-
 | Method | Im1 | Im2 | Im3 | Im4 | Im4 | Im5 | Im6 | Im7 | Im8 | Im9 | Im10 | Im11 | Im12 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Semantic Image Inpainting | 13.31 | 21.07 | 25.54 | 29.93 | 28.39 | 28.19 | 28.94 | 25.25 | 27.07 | 34.80 | 20.07 | 34.63 |
 | Collaborative Image Inpainting | 14.65 | 23.84 | 28.63 | 23.43 | 24.53 | 26.77 | 29.22 | 26.57 | 28.18 | 38.27 | 20.10 | 35.97 |
-```
 
 
 
