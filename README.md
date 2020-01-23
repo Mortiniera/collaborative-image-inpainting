@@ -29,8 +29,8 @@ Sampling results for image inpainting by targeting the corrupted region. (Top) I
 
 | Method | SSIM | PSNR | IS |
 | --- | --- | --- | --- |
-| Semantic Image Inpainting | 0.813 | 23.713 | 4.160 +- 0.118 |
-| Collaborative Image Inpainting | 0.834 | 24.478 |  4.184 +- 0.192 |
+| Semantic Image Inpainting | 0.813 | 23.713 | 4.160 +/- 0.118 |
+| Collaborative Image Inpainting | 0.834 | 24.478 |  4.184 +/- 0.192 |
 
 
 
