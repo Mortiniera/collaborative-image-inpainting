@@ -16,6 +16,20 @@ import cv2
 from skimage.measure import compare_psnr
 from skimage.measure import compare_ssim
 
+from math import floor
+from numpy import ones
+from numpy import expand_dims
+from numpy import log
+from numpy import mean
+from numpy import std
+from numpy import exp
+from numpy.random import shuffle
+from tensorflow.keras.applications.inception_v3 import InceptionV3
+from tensorflow.keras.applications.inception_v3 import preprocess_input
+from keras.datasets import cifar10
+from skimage.transform import resize
+from numpy import asarray
+
 
 
 class Solver(object):
@@ -176,11 +190,58 @@ class Solver(object):
                 plt.savefig("{}/image_{}.png".format(directory, indice), bbox_inches='tight')
     
     
+    # scale an array of images to a new size
+    def scale_images(self, images, new_shape):
+      images_list = list()
+      for image in images:
+        # resize with nearest neighbor interpolation
+        new_image = resize(image, new_shape, 0)
+        # store
+        images_list.append(new_image)
+      return asarray(images_list)
+    
+    # assumes images have any shape and pixels in [0,255]
+    def calculate_inception_score(self, images, n_split=10, eps=1E-16):
+      # load inception v3 model
+      model = InceptionV3()
+      # enumerate splits of images/predictions
+      scores = list()
+      n_part = floor(images.shape[0] / n_split)
+      for i in range(n_split):
+        # retrieve images
+        ix_start, ix_end = i * n_part, (i+1) * n_part
+        subset = images[ix_start:ix_end]
+        # convert from uint8 to float32
+        subset = subset.astype('float32')
+        # scale images to the required size
+        subset = self.scale_images(subset, (299,299,3))
+        # pre-process images, scale to [-1,1]
+        subset = preprocess_input(subset)
+        # predict p(y|x)
+        p_yx = model.predict(subset)
+        # calculate p(y)
+        p_y = expand_dims(p_yx.mean(axis=0), 0)
+        # calculate KL divergence using log probabilities
+        kl_d = p_yx * (log(p_yx + eps) - log(p_y + eps))
+        # sum over classes
+        sum_kl_d = kl_d.sum(axis=1)
+        # average over images
+        avg_kl_d = mean(sum_kl_d)
+        # undo the log
+        is_score = exp(avg_kl_d)
+        # store
+        scores.append(is_score)
+      # average across images
+      is_avg, is_std = mean(scores), std(scores)
+      return is_avg, is_std
+    
+    
     def collaborative_sampling_inpainting(self) :
         if self.load_model():
             print(' [*] Load SUCCESS!')
         else:
             print(' [!] Load Failed...')
+
 
         #For metrics computings
         original_images = []
@@ -192,12 +253,18 @@ class Solver(object):
         gen_samples_list = []
         inpaint_gen_samples_list = []
 
+
+
         for n in range(self.flags.num_try) :
 
             latent_vectors, context_images = self.find_closest_encoding(index=self.flags.test_number)
             #Sanity check
             assert latent_vectors.shape[0] == context_images.shape[0], "Not same number of vectors and images to test !"
             assert self.flags.sample_batch == context_images.shape[0], "Sample batch different than number of images to test !"
+
+
+            
+
 
             print("------- Generate reconstructed image ---------")
             # Obtain generated results directly from the generator output,i.e, without any refinement
@@ -215,7 +282,11 @@ class Solver(object):
                 inpaint_gen_samples = np.multiply(context_images, self.model.masks) \
                                       + np.multiply(gen_samples, 1. - self.model.masks)
                 inpaint_gen_samples_list.append(inpaint_gen_samples)
+            
 
+
+        
+        
         print("-------- START COLLABORATIVE SAMPLING AND DISCRIMINATOR SHAPING ------")
         #Include Collaborative Sampling here
         all_results = self.model.dcgan.discriminator_shaping(latent_vectors_list, context_images_list, self.images_dir,
@@ -317,6 +388,12 @@ class Solver(object):
             print("Collaborative Image Inpainting PSNR : {}".format(p2/len(original_images)))
             print("Semantic Image Inpainting SSIM : {}".format(s1/len(original_images)))
             print("Collaborative Image Inpainting SSIM : {}".format(s2/len(original_images)))
+            original_method_images = (((asarray(original_method_images)+ 1) / 2.0)*255).astype(int)
+            is_avg, is_std = self.calculate_inception_score(original_method_images)
+            print("Semantic Image Inpainting IS : {} +- {}".format(is_avg, is_std))
+            new_method_images = (((asarray(new_method_images)+ 1) / 2.0)*255).astype(int)
+            is_avg, is_std = self.calculate_inception_score(new_method_images)
+            print("Collaborative Image Inpainting IS : {} +- {}".format(is_avg, is_std))
 
 
 
