@@ -1,5 +1,7 @@
 # Collaborative Sampling for Image Inpainting
 
+This repository is a tensorflow implementation of  [Collaborative Sampling for Image inpainting](https://github.com/Mortiniera/collaborative-image-inpainting/blob/master/report.pdf). In this work, we wanted to experiment with [Collaborative Sampling in generative adversarial networks](https://github.com/vita-epfl/collaborative-gan-sampling) to improve the quality of the inpainted images from [Semantic Image Inpainting with Deep Generative Models](https://github.com/ChengBinJin/semantic-image-inpainting).
+
 ## Author
 
 - Thevie Mortiniera
