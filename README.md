@@ -90,6 +90,10 @@ If using an already pretrained DCGAN model, its root folder should be placed at 
 in the training set to be used during the collaborative sampling scheme. 
 * Finally, use the pretrained DCGAN model along with the saved latent vectors to experiment and compare the collaborative image inpainting scheme against the previous semantic image inpainting method.
 
+For reproducibility, as Github does not handle very large files, here my saved weights along with the saved latent vectors for reproducibility : [Trained model and saved latent vectors](https://drive.google.com/drive/folders/1t0XvAEf2oDhbf9tyQCcn5iFJ3WkiJ7Ug?usp=sharing)
+
+
+
 
 #### Training
 
