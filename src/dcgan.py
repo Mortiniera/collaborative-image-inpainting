@@ -197,8 +197,8 @@ class DCGAN(object):
 
         return [d_loss, g_loss], summary
 
-    def sample_imgs(self, fixed_z):
-        g_feed = {self.z: self.sample_z(num=self.flags.sample_batch, fixed=True, fixed_z=fixed_z)}
+    def sample_imgs(self, fixed_z, fixed=True):
+        g_feed = {self.z: self.sample_z(num=self.flags.sample_batch, fixed=fixed, fixed_z=fixed_z)}
         y_fakes = self.sess.run(self.g_samples, feed_dict=g_feed)
 
         return [y_fakes]
